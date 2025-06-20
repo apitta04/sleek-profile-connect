@@ -22,7 +22,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-300">
-            Ready to collaborate? Let's discuss opportunities and projects
+            Ready to collaborate on engineering projects or discuss opportunities
           </p>
         </div>
 
@@ -37,7 +37,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-purple-300">Email</p>
-                    <p className="text-gray-300">anish.pitta@email.com</p>
+                    <p className="text-gray-300">anishpitta12@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -46,7 +46,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-blue-300">Phone</p>
-                    <p className="text-gray-300">Available upon request</p>
+                    <p className="text-gray-300">(248)854-3205</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -55,9 +55,27 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-pink-300">Location</p>
-                    <p className="text-gray-300">Open to opportunities</p>
+                    <p className="text-gray-300">Austin, TX 78628</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-lg p-6 border border-purple-500/20">
+              <h4 className="text-lg font-bold text-purple-300 mb-3">Currently</h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-gray-300">
+                  🎓 <span className="text-purple-300">Electrical Engineering Student</span> at Texas Tech University
+                </p>
+                <p className="text-gray-300">
+                  💼 <span className="text-pink-300">Student Assistant</span> at TTU Philosophy Department  
+                </p>
+                <p className="text-gray-300">
+                  📊 <span className="text-blue-300">Marketing Analyst</span> at MyWorkBelt
+                </p>
+                <p className="text-gray-300">
+                  🎯 <span className="text-purple-300">Expected Graduation:</span> May 2026
+                </p>
               </div>
             </div>
 
@@ -91,7 +109,7 @@ const Contact = () => {
             <CardHeader>
               <CardTitle className="text-purple-300">Send a Message</CardTitle>
               <CardDescription className="text-gray-300">
-                Fill out the form below and I'll get back to you as soon as possible.
+                Interested in engineering projects, collaborations, or opportunities? Let's connect!
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -112,13 +130,13 @@ const Contact = () => {
                 </div>
                 <div>
                   <Label htmlFor="subject" className="text-gray-300">Subject</Label>
-                  <Input id="subject" placeholder="Project Discussion" className="bg-gray-800 border-purple-500/30 text-white placeholder-gray-400" />
+                  <Input id="subject" placeholder="Engineering Collaboration" className="bg-gray-800 border-purple-500/30 text-white placeholder-gray-400" />
                 </div>
                 <div>
                   <Label htmlFor="message" className="text-gray-300">Message</Label>
                   <Textarea
                     id="message"
-                    placeholder="Tell me about your project..."
+                    placeholder="Tell me about your project or opportunity..."
                     className="min-h-[120px] bg-gray-800 border-purple-500/30 text-white placeholder-gray-400"
                   />
                 </div>

@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -21,12 +21,25 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-purple-300 mb-4">
-          Computer Science Student & Software Developer
+          Electrical Engineering Student & Robotics Engineer
         </p>
-        <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-          Passionate about creating innovative solutions through code. Currently pursuing my degree while building 
-          real-world applications and contributing to open source projects.
+        <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+          Bachelor of Science in Electrical Engineering with Minor in Computer Science & Business at Texas Tech University. 
+          Passionate about robotics, automation, and creating innovative engineering solutions.
         </p>
+        <div className="flex items-center justify-center space-x-6 mb-8 text-sm text-gray-400">
+          <div className="flex items-center space-x-2">
+            <Mail className="w-4 h-4" />
+            <span>anishpitta12@gmail.com</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <MapPin className="w-4 h-4" />
+            <span>Austin, TX 78628</span>
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-lg p-4 mb-8 border border-purple-500/20">
+          <p className="text-purple-300 font-semibold">GPA: 3.46 | Expected Graduation: May 2026</p>
+        </div>
         <div className="flex items-center justify-center space-x-4 mb-12">
           <Button 
             variant="outline" 
