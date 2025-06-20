@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Github, ExternalLink, Upload, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -120,23 +119,23 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-16">
           <div className="text-center flex-1">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
               <span className="bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400 bg-clip-text text-transparent">
                 Engineering Projects
               </span>
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-300 animate-fade-in">
               A showcase of my engineering and technical projects
             </p>
           </div>
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+              <Button className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/25 animate-fade-in">
                 <Upload className="w-4 h-4" />
                 <span>Add Project</span>
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-lg bg-gray-900 border-purple-500/20">
+            <DialogContent className="max-w-lg bg-gray-900/95 border-purple-500/30 backdrop-blur-sm">
               <DialogHeader>
                 <DialogTitle className="text-purple-300">Add New Project</DialogTitle>
               </DialogHeader>
@@ -147,7 +146,7 @@ const Projects = () => {
                     id="title"
                     value={newProject.title}
                     onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -156,7 +155,7 @@ const Projects = () => {
                     id="description"
                     value={newProject.description}
                     onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -165,7 +164,7 @@ const Projects = () => {
                     id="github"
                     value={newProject.github}
                     onChange={(e) => setNewProject({ ...newProject, github: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -174,7 +173,7 @@ const Projects = () => {
                     id="demo"
                     value={newProject.demo}
                     onChange={(e) => setNewProject({ ...newProject, demo: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -183,7 +182,7 @@ const Projects = () => {
                     id="tech"
                     value={newProject.tech}
                     onChange={(e) => setNewProject({ ...newProject, tech: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -192,10 +191,10 @@ const Projects = () => {
                     id="image"
                     value={newProject.image}
                     onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
-                <Button onClick={addProject} className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                <Button onClick={addProject} className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-all duration-300">
                   Add Project
                 </Button>
               </div>
@@ -204,8 +203,8 @@ const Projects = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card key={project.id} className="group hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 border-purple-500/20">
+          {projects.map((project, index) => (
+            <Card key={project.id} className="group hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 border-purple-500/20 hover:scale-[1.02] animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="aspect-video overflow-hidden relative">
                 <img
                   src={project.image}
@@ -213,9 +212,9 @@ const Projects = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 {project.award && (
-                  <div className="absolute top-2 right-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
+                  <div className="absolute top-2 right-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
                     <Award className="w-3 h-3" />
-                    <span>Award</span>
+                    <span>Hackathon Project</span>
                   </div>
                 )}
               </div>
@@ -231,15 +230,15 @@ const Projects = () => {
               </CardHeader>
               <CardContent>
                 {project.award && (
-                  <div className="mb-4 p-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-lg border border-yellow-500/20">
-                    <p className="text-yellow-300 text-sm font-medium">🏆 {project.award}</p>
+                  <div className="mb-4 p-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/20">
+                    <p className="text-purple-300 text-sm font-medium">🏆 {project.award}</p>
                   </div>
                 )}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 rounded-full text-xs border border-purple-500/30"
+                      className="px-2 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 rounded-full text-xs border border-purple-500/30 hover:scale-105 transition-all duration-200"
                     >
                       {tech}
                     </span>
@@ -247,7 +246,7 @@ const Projects = () => {
                 </div>
                 <div className="flex space-x-3">
                   {project.github && (
-                    <Button variant="outline" size="sm" asChild className="border-purple-500/30 text-purple-300 hover:bg-purple-500/10">
+                    <Button variant="outline" size="sm" asChild className="border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:scale-105 transition-all duration-300">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
                         Code
@@ -255,7 +254,7 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.demo && (
-                    <Button size="sm" asChild className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                    <Button size="sm" asChild className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-all duration-300">
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Demo

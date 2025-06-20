@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Calendar, Plus, Edit3, Trash2 } from "lucide-react";
+import { Calendar, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -73,23 +73,23 @@ const Blog = () => {
     <section id="blog" className="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">
               Updates & Achievements
             </span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-300 mb-8 animate-fade-in">
             Latest news, achievements, and project updates
           </p>
           
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg shadow-purple-500/25 hover:scale-105 transition-all duration-300 animate-fade-in">
                 <Plus className="w-4 h-4 mr-2" />
                 Add New Post
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-gray-900 border-purple-500/20">
+            <DialogContent className="bg-gray-900/95 border-purple-500/30 backdrop-blur-sm">
               <DialogHeader>
                 <DialogTitle className="text-purple-300">Create New Post</DialogTitle>
                 <DialogDescription className="text-gray-400">
@@ -104,7 +104,7 @@ const Blog = () => {
                     value={newPost.title}
                     onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
                     placeholder="Enter post title..."
-                    className="bg-gray-800 border-purple-500/30 text-white"
+                    className="bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ const Blog = () => {
                     id="postType"
                     value={newPost.type}
                     onChange={(e) => setNewPost({ ...newPost, type: e.target.value as BlogPost['type'] })}
-                    className="w-full p-2 bg-gray-800 border border-purple-500/30 rounded-md text-white"
+                    className="w-full p-2 bg-gray-800/50 border border-purple-500/30 rounded-md text-white backdrop-blur-sm"
                   >
                     <option value="update">Update</option>
                     <option value="achievement">Achievement</option>
@@ -127,10 +127,10 @@ const Blog = () => {
                     value={newPost.content}
                     onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
                     placeholder="Write your post content..."
-                    className="min-h-[120px] bg-gray-800 border-purple-500/30 text-white"
+                    className="min-h-[120px] bg-gray-800/50 border-purple-500/30 text-white backdrop-blur-sm"
                   />
                 </div>
-                <Button onClick={handleAddPost} className="w-full bg-gradient-to-r from-purple-500 to-pink-500">
+                <Button onClick={handleAddPost} className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105 transition-all duration-300">
                   Create Post
                 </Button>
               </div>
@@ -139,8 +139,8 @@ const Blog = () => {
         </div>
 
         <div className="grid gap-6">
-          {posts.map((post) => (
-            <Card key={post.id} className={`bg-gradient-to-r ${getTypeColor(post.type)} border backdrop-blur-sm`}>
+          {posts.map((post, index) => (
+            <Card key={post.id} className={`bg-gradient-to-br ${getTypeColor(post.type)} border backdrop-blur-sm hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:scale-[1.02] animate-fade-in`} style={{ animationDelay: `${index * 100}ms` }}>
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
@@ -150,7 +150,7 @@ const Blog = () => {
                       <CardDescription className="flex items-center space-x-2 text-gray-400">
                         <Calendar className="w-4 h-4" />
                         <span>{new Date(post.date).toLocaleDateString()}</span>
-                        <span className="px-2 py-1 bg-purple-500/20 rounded text-xs capitalize">
+                        <span className="px-2 py-1 bg-purple-500/20 rounded text-xs capitalize border border-purple-500/30">
                           {post.type}
                         </span>
                       </CardDescription>
@@ -160,7 +160,7 @@ const Blog = () => {
                     variant="ghost"
                     size="sm"
                     onClick={() => handleDeletePost(post.id)}
-                    className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                    className="text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300 hover:scale-110"
                   >
                     <Trash2 className="w-4 h-4" />
                   </Button>
@@ -174,7 +174,7 @@ const Blog = () => {
         </div>
 
         {posts.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-12 animate-fade-in">
             <p className="text-gray-400 text-lg">No posts yet. Create your first post to get started!</p>
           </div>
         )}
